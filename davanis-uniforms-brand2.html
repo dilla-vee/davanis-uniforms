@@ -1,0 +1,788 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Davanis Uniforms Ltd — Stitching Excellence</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#0E2038;
+    --navy-2:#16304F;
+    --green:#1B4B3A;
+    --green-2:#123527;
+    --gold:#C9A227;
+    --gold-light:#E6C158;
+    --ink:#1B2430;
+    --paper:#FFFFFF;
+    --mist:#F4F6F5;
+    --grey:#5C6470;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{font-family:'Inter',sans-serif; color:var(--ink); background:var(--paper); -webkit-font-smoothing:antialiased; overflow-x:hidden; transition: background 0.3s, color 0.3s;}
+  img{display:block; max-width:100%;}
+  a{text-decoration:none; color:inherit;}
+  ul{list-style:none;}
+  .wrap{max-width:1240px; margin:0 auto; padding:0 32px;}
+  h1,h2,h3,h4{font-family:'Montserrat',sans-serif; font-weight:800; letter-spacing:-0.01em; line-height:1.15;}
+  .eyebrow{font-family:'Montserrat',sans-serif; font-size:12px; font-weight:700; letter-spacing:.18em; text-transform:uppercase; color:var(--gold);}
+  .btn{display:inline-flex; align-items:center; gap:8px; padding:15px 28px; font-family:'Montserrat',sans-serif; font-weight:700; font-size:13px; letter-spacing:.03em; cursor:pointer; border:2px solid transparent; transition:all .3s ease;}
+  .btn-gold{background:var(--gold); color:var(--navy);}
+  .btn-gold:hover{background:var(--gold-light); transform:translateY(-2px); box-shadow:0 10px 22px rgba(201,162,39,.35);}
+  .btn-outline{border-color:rgba(255,255,255,.5); color:#fff;}
+  .btn-outline:hover{background:rgba(255,255,255,.12); border-color:#fff; transform:translateY(-2px);}
+  .btn-green{background:var(--green); color:#fff;}
+  .btn-green:hover{background:var(--green-2); transform:translateY(-2px);}
+
+  /* topbar */
+  .topbar{background:var(--navy); color:rgba(255,255,255,.8); font-size:12.5px; padding:6px 0;}
+  .topbar .wrap{display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px; min-height:42px;}
+  .topbar .left{display:flex; gap:24px; flex-wrap:wrap;}
+  .topbar .left span{display:flex; align-items:center; gap:7px;}
+  .topbar .socials{display:flex; gap:12px;}
+  .topbar .socials a{width:26px; height:26px; border-radius:50%; background:rgba(255,255,255,.12); display:flex; align-items:center; justify-content:center; font-size:11px; transition:.3s;}
+  .topbar .socials a:hover{background:var(--gold); color:var(--navy);}
+  @media (max-width:760px){ .topbar .left{justify-content:center; text-align:center; width:100%;} .topbar .socials{display:none;} }
+
+  /* nav */
+  nav{background:#fff; box-shadow:0 2px 18px rgba(14,32,56,.08); position:sticky; top:0; z-index:50; transition: background 0.3s, border-color 0.3s;}
+  nav .wrap{display:flex; align-items:center; justify-content:space-between; height:88px;}
+  .brand{display:flex; align-items:center; gap:12px;}
+  .brand .logo-img{width:64px; height:64px; object-fit:contain; display:block;}
+  .brand .word{font-family:'Montserrat',sans-serif; font-weight:800; font-size:17px; color:var(--navy); line-height:1.15; transition: color 0.3s;}
+  .brand .word span{color:var(--gold);}
+  .brand .word small{display:block; font-family:'Montserrat',sans-serif; font-weight:600; font-size:9px; letter-spacing:.14em; color:var(--gold); text-transform:uppercase; margin-top:2px;}
+  .navlinks{display:flex; gap:32px; font-family:'Montserrat',sans-serif; font-weight:600; font-size:13.5px; color:var(--ink); transition: color 0.3s;}
+  .navlinks a{position:relative; padding:6px 0;}
+  .navlinks a::after{content:''; position:absolute; left:0; bottom:0; width:0; height:2px; background:var(--gold); transition:width .3s;}
+  .navlinks a:hover::after{width:100%;}
+  .wa-btn{display:flex; align-items:center; gap:9px; background:#25D366; color:#fff; padding:12px 20px; border-radius:26px; font-family:'Montserrat',sans-serif; font-weight:700; font-size:12.5px; transition:.3s;}
+  .wa-btn:hover{transform:translateY(-2px); box-shadow:0 10px 22px rgba(37,211,102,.35);}
+  .burger{display:none;}
+
+  /* Theme Toggle Button Style */
+  .theme-toggle{
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--navy);
+    padding: 8px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.3s, color 0.3s, transform 0.3s ease;
+    width: 40px;
+    height: 40px;
+    position: relative;
+  }
+  .theme-toggle:hover{
+    background: var(--mist);
+    transform: scale(1.1);
+  }
+  .theme-toggle svg{
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    transition: opacity 0.3s, transform 0.4s ease;
+  }
+  /* In light mode: show moon, hide sun */
+  .theme-toggle .sun {
+    opacity: 0;
+    transform: rotate(90deg);
+  }
+  .theme-toggle .moon {
+    opacity: 1;
+    transform: rotate(0deg);
+  }
+
+  /* Mobile Navigation Menu Drawer */
+  @media (max-width:960px){
+    .burger{display:flex; flex-direction:column; gap:5px; cursor:pointer; z-index:100; position:relative;}
+    .burger span{width:24px; height:2px; background:var(--navy); transition: all 0.3s ease;}
+    .navlinks{
+      display:flex;
+      position:fixed;
+      top:0;
+      right:-100%;
+      width:280px;
+      height:100vh;
+      background:#fff;
+      flex-direction:column;
+      padding:100px 32px 32px;
+      gap:24px;
+      box-shadow:-10px 0 30px rgba(14,32,56,.15);
+      transition: right 0.4s ease, background 0.3s;
+      z-index:90;
+    }
+    .navlinks.active{
+      right:0;
+    }
+    .burger.active span:nth-child(1){
+      transform: translateY(7px) rotate(45deg);
+    }
+    .burger.active span:nth-child(2){
+      opacity: 0;
+    }
+    .burger.active span:nth-child(3){
+      transform: translateY(-7px) rotate(-45deg);
+    }
+  }
+
+  /* hero */
+  .hero{position:relative; background:linear-gradient(120deg, var(--navy) 0%, var(--green-2) 100%); color:#fff; overflow:hidden;}
+  .hero-grid{display:grid; grid-template-columns:1.1fr .9fr; align-items:center; min-height:600px;}
+  .hero-copy{padding:80px 0 120px 32px; position:relative; z-index:2;}
+  .hero-copy .eyebrow{margin-bottom:14px; display:block;}
+  .hero-copy h1{font-size:clamp(34px,5vw,54px); color:#fff; margin-bottom:8px;}
+  .hero-copy h1 .accent{color:var(--gold);}
+  .hero-script{font-family:'Montserrat',sans-serif; font-style:italic; font-weight:600; color:var(--gold-light); font-size:18px; margin:14px 0 20px; display:flex; align-items:center; gap:14px;}
+  .hero-script::before, .hero-script::after{content:''; height:1px; width:36px; background:var(--gold-light); opacity:.6;}
+  .hero-copy p{font-size:15.5px; line-height:1.75; color:rgba(255,255,255,.78); max-width:440px; margin-bottom:34px;}
+  .hero-actions{display:flex; gap:16px; flex-wrap:wrap;}
+  .hero-img-wrap{position:relative; height:100%; display:flex; align-items:flex-end; justify-content:center;}
+  .hero-img-wrap img{width:100%; height:560px; object-fit:cover; object-position:top center; border-radius:6px 6px 0 0;}
+  .hero-badge{
+    position:absolute; top:40px; right:0; width:160px; height:160px; border-radius:50%;
+    border:3px solid var(--gold); background:rgba(255,255,255,.96); backdrop-filter:blur(6px);
+    display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; z-index:3;
+    box-shadow:0 8px 32px rgba(14,32,56,.25);
+  }
+  .hero-badge .badge-logo{width:130px; height:130px; object-fit:contain;}
+  @media (max-width:960px){
+    .hero-grid{grid-template-columns:1fr; min-height:auto;}
+    .hero-copy{padding:60px 24px 40px;}
+    .hero-img-wrap img{height:320px; border-radius:6px;}
+    .hero-badge{display:none;}
+  }
+
+  /* trust float card */
+  .trust-wrap{position:relative; z-index:10; margin-top:-64px;}
+  .trust{background:#fff; border-radius:10px; box-shadow:0 20px 50px rgba(14,32,56,.16); padding:0; transition: background 0.3s, border-color 0.3s;}
+  .trust-grid{display:grid; grid-template-columns:repeat(4,1fr);}
+  .trust-cell{display:flex; align-items:center; gap:16px; padding:30px 26px; border-right:1px solid #EEE;}
+  .trust-cell:last-child{border-right:none;}
+  .trust-icon{width:50px; height:50px; min-width:50px; border-radius:50%; background:var(--navy); display:flex; align-items:center; justify-content:center; font-size:20px; color:var(--gold);}
+  .trust-cell h4{font-family:'Montserrat',sans-serif; font-size:14px; font-weight:700; color:var(--navy); margin-bottom:3px; transition: color 0.3s;}
+  .trust-cell p{font-size:12px; color:var(--grey); transition: color 0.3s;}
+  @media (max-width:960px){ .trust-grid{grid-template-columns:1fr 1fr;} .trust-cell{border-bottom:1px solid #EEE;} .trust-wrap{margin-top:0;} }
+  @media (max-width:560px){ .trust-grid{grid-template-columns:1fr;} }
+
+  section{padding:110px 0;}
+  .head-center{text-align:center; max-width:600px; margin:0 auto 60px;}
+  .head-center .eyebrow{display:block; margin-bottom:12px;}
+  .head-center h2{font-size:clamp(28px,3.6vw,40px); color:var(--navy); transition: color 0.3s;}
+
+  /* offer grid */
+  .offer-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:26px;}
+  .offer-card{background:#fff; border:1px solid #EDEDED; border-radius:8px; overflow:hidden; text-align:center; transition:transform .35s, box-shadow .35s, background .30s, border-color 0.30s;}
+  .offer-card:hover{transform:translateY(-8px); box-shadow:0 22px 44px rgba(14,32,56,.12);}
+  .offer-photo{height:190px; overflow:hidden;}
+  .offer-photo img{width:100%; height:100%; object-fit:cover; transition:transform .6s;}
+  .offer-card:hover .offer-photo img{transform:scale(1.08);}
+  .offer-icon{width:56px; height:56px; border-radius:50%; background:var(--green); color:#fff; display:flex; align-items:center; justify-content:center; font-size:22px; margin:-28px auto 14px; border:4px solid #fff; position:relative; z-index:2;}
+  .offer-body{padding:0 20px 28px;}
+  .offer-card h3{font-size:15px; color:var(--navy); letter-spacing:.03em; margin-bottom:8px; transition: color 0.3s;}
+  .offer-card p{font-size:13px; color:var(--grey); line-height:1.6; margin-bottom:18px; min-height:60px; transition: color 0.3s;}
+  .offer-card .btn{width:100%; justify-content:center; padding:11px; font-size:11.5px;}
+  @media (max-width:960px){ .offer-grid{grid-template-columns:1fr 1fr;} }
+  @media (max-width:560px){ .offer-grid{grid-template-columns:1fr;} }
+
+  /* embroidery section */
+  .embroidery{background:var(--mist); padding:110px 0; transition: background 0.3s;}
+  .embroidery-grid{display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:center;}
+  .embroidery-copy .eyebrow{margin-bottom:12px; display:block;}
+  .embroidery-copy h2{font-size:clamp(28px,3.6vw,40px); color:var(--navy); margin-bottom:20px; transition: color 0.3s;}
+  .embroidery-copy p{font-size:15px; line-height:1.75; color:var(--grey); margin-bottom:24px; transition: color 0.3s;}
+  .embroidery-list{margin-bottom:32px;}
+  .embroidery-list li{display:flex; align-items:center; gap:12px; margin-bottom:12px; font-weight:600; font-size:14.5px; color:var(--navy); transition: color 0.3s;}
+  .embroidery-list li span{color:var(--gold); font-size:18px;}
+  .embroidery-gallery{display:grid; grid-template-columns:1fr 1fr; gap:16px;}
+  .embroidery-gallery .img-main{grid-row:span 2; height:100%; width:100%; object-fit:cover; border-radius:10px; box-shadow:0 12px 28px rgba(14,32,56,.1);}
+  .embroidery-gallery img{width:100%; aspect-ratio:1; object-fit:cover; border-radius:10px; box-shadow:0 12px 28px rgba(14,32,56,.1); transition:transform .4s;}
+  .embroidery-gallery img:hover{transform:scale(1.03);}
+  @media (max-width:960px){
+    .embroidery-grid{grid-template-columns:1fr; gap:40px;}
+    .embroidery-gallery{grid-template-columns:1fr 1fr; max-width:600px; margin:0 auto; width:100%;}
+  }
+
+  /* modal overlays */
+  .modal-overlay{
+    display:none; position:fixed; inset:0; background:rgba(10,18,32,.82);
+    z-index:200; align-items:center; justify-content:center;
+    backdrop-filter:blur(4px); padding:20px;
+  }
+  .modal-overlay.open{display:flex;}
+  .modal-box{
+    background:#fff; border-radius:14px; max-width:900px; width:100%;
+    max-height:90vh; overflow-y:auto; position:relative;
+    box-shadow:0 32px 80px rgba(10,18,32,.4);
+    animation:modalIn .35s cubic-bezier(.34,1.56,.64,1) both;
+    transition: background 0.3s;
+  }
+  @keyframes modalIn{from{opacity:0;transform:scale(.88) translateY(24px);}to{opacity:1;transform:none;}}
+  .modal-header{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:22px 28px 16px; border-bottom:1px solid #EDEDED; position:sticky; top:0;
+    background:#fff; z-index:2; border-radius:14px 14px 0 0;
+    transition: background 0.3s, border-color 0.3s;
+  }
+  .modal-header h3{font-family:'Montserrat',sans-serif; font-size:18px; font-weight:800; color:var(--navy); transition: color 0.3s;}
+  .modal-close{
+    width:36px; height:36px; border-radius:50%; border:none; cursor:pointer;
+    background:var(--navy); color:#fff; font-size:18px; display:flex; align-items:center; justify-content:center;
+    transition:.25s;
+  }
+  .modal-close:hover{background:var(--gold); color:var(--navy);}
+  .modal-body{padding:28px;}
+  .modal-desc{font-size:14px; color:var(--grey); line-height:1.7; margin-bottom:24px; transition: color 0.3s;}
+  .modal-gallery{display:grid; grid-template-columns:repeat(3,1fr); gap:14px;}
+  .modal-gallery img{width:100%; aspect-ratio:1; object-fit:cover; border-radius:8px; transition:transform .4s;}
+  .modal-gallery img:hover{transform:scale(1.04);}
+  .modal-gallery-wide{display:grid; grid-template-columns:repeat(2,1fr); gap:14px;}
+  .modal-gallery-wide img{width:100%; aspect-ratio:4/3; object-fit:cover; border-radius:8px; transition:transform .4s;}
+  .modal-gallery-wide img:hover{transform:scale(1.04);}
+  .modal-cta{margin-top:24px; text-align:center;}
+  @media (max-width:640px){.modal-gallery{grid-template-columns:1fr 1fr;} .modal-gallery-wide{grid-template-columns:1fr;}}
+
+  /* why choose */
+  .why{background:var(--green); color:#fff;}
+  .why-grid{display:grid; grid-template-columns:.85fr 1.15fr; gap:0; align-items:stretch; border-radius:10px; overflow:hidden;}
+  .why-img{position:relative; min-height:420px;}
+  .why-img img{width:100%; height:100%; object-fit:cover; position:absolute; inset:0;}
+  .why-img::after{content:''; position:absolute; inset:0; background:linear-gradient(0deg, rgba(18,53,39,.5), transparent 60%);}
+  .why-copy{padding:50px; background:var(--green-2);}
+  .why-copy .eyebrow{margin-bottom:14px; display:block; color:var(--gold-light);}
+  .why-copy h2{font-size:clamp(24px,3vw,32px); color:#fff; margin-bottom:16px;}
+  .why-copy > p{font-size:14.5px; line-height:1.75; color:rgba(255,255,255,.75); margin-bottom:30px; max-width:460px;}
+  .why-points{display:grid; grid-template-columns:1fr 1fr; gap:24px; margin-bottom:30px;}
+  .why-point{display:flex; gap:14px;}
+  .why-point .icon{width:42px; height:42px; min-width:42px; border-radius:50%; border:2px solid var(--gold); display:flex; align-items:center; justify-content:center; color:var(--gold-light); font-size:16px;}
+  .why-point h4{font-size:13.5px; font-weight:700; margin-bottom:4px; color:#fff;}
+  .why-point p{font-size:12px; color:rgba(255,255,255,.65); line-height:1.5;}
+  @media (max-width:960px){ .why-grid{grid-template-columns:1fr;} .why-img{min-height:260px;} .why-copy{padding:36px 26px;} .why-points{grid-template-columns:1fr;} }
+
+  /* gallery */
+  .gal-grid{display:grid; grid-template-columns:repeat(6,1fr); gap:14px;}
+  .gal-item{position:relative; aspect-ratio:3/4; border-radius:6px; overflow:hidden;}
+  .gal-item img{width:100%; height:100%; object-fit:cover; transition:transform .6s;}
+  .gal-item:hover img{transform:scale(1.1);}
+  .gal-item::after{content:''; position:absolute; inset:0; background:linear-gradient(0deg, rgba(14,32,56,.55), transparent 55%); opacity:0; transition:opacity .3s;}
+  .gal-item:hover::after{opacity:1;}
+  .gal-cta{text-align:center; margin-top:44px;}
+  @media (max-width:960px){ .gal-grid{grid-template-columns:repeat(3,1fr);} }
+  @media (max-width:560px){ .gal-grid{grid-template-columns:repeat(2,1fr);} }
+
+  /* footer */
+  footer{background:var(--navy); color:rgba(255,255,255,.65);}
+  .foot-top{padding:80px 0 50px;}
+  .foot-grid{display:grid; grid-template-columns:1.3fr 1fr 1fr 1.1fr; gap:40px;}
+  .foot-brand .brand{margin-bottom:16px;}
+  .foot-brand .word{color:#fff;}
+  .foot-brand p{font-size:13px; line-height:1.7; max-width:270px; margin-bottom:20px;}
+  .foot-socials{display:flex; gap:10px;}
+  .foot-socials a{width:34px; height:34px; border-radius:50%; background:rgba(255,255,255,.08); display:flex; align-items:center; justify-content:center; font-size:12px; transition:.3s;}
+  .foot-socials a:hover{background:var(--gold); color:var(--navy);}
+  footer h5{font-family:'Montserrat',sans-serif; font-size:13px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:var(--gold-light); margin-bottom:22px;}
+  footer li{margin-bottom:13px; font-size:13.5px; display:flex; align-items:flex-start; gap:8px;}
+  footer li a:hover{color:#fff;}
+  .foot-wa p{font-size:12.5px; margin-bottom:16px; color:rgba(255,255,255,.6); line-height:1.6;}
+  .bottom-bar{border-top:1px solid rgba(255,255,255,.1); padding:24px 0; display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px; font-size:12px; color:rgba(255,255,255,.45);}
+  @media (max-width:960px){ .foot-grid{grid-template-columns:1fr 1fr;} }
+  @media (max-width:560px){ .foot-grid{grid-template-columns:1fr;} }
+
+  .reveal{opacity:0; transform:translateY(26px); transition:opacity .7s ease, transform .7s ease;}
+  .reveal.in{opacity:1; transform:translateY(0);}
+  @media (prefers-reduced-motion: reduce){ .reveal{opacity:1; transform:none; transition:none;} }
+  :focus-visible{outline:2px solid var(--gold); outline-offset:3px;}
+
+  /* ── DARK MODE EXPLICIT RULES ── */
+  body.dark-mode {
+    --paper: #09101A;
+    --mist: #131E2B;
+    --ink: #E2E8F0;
+    --grey: #94A3B8;
+  }
+  body.dark-mode h1,
+  body.dark-mode h2,
+  body.dark-mode h3,
+  body.dark-mode h4,
+  body.dark-mode h5,
+  body.dark-mode .brand .word,
+  body.dark-mode .head-center h2 {
+    color: #FFFFFF;
+  }
+  body.dark-mode nav {
+    background: #09101A;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+    border-bottom: 1px solid #1E293B;
+  }
+  body.dark-mode nav .navlinks a {
+    color: #E2E8F0;
+  }
+  body.dark-mode .theme-toggle {
+    color: var(--gold-light);
+  }
+  body.dark-mode .theme-toggle:hover {
+    background: rgba(255, 255, 255, 0.08);
+  }
+  body.dark-mode .theme-toggle .sun {
+    opacity: 1;
+    transform: rotate(0deg);
+  }
+  body.dark-mode .theme-toggle .moon {
+    opacity: 0;
+    transform: rotate(-90deg);
+  }
+  body.dark-mode .burger span {
+    background: #FFFFFF;
+  }
+  @media (max-width:960px){
+    body.dark-mode .navlinks {
+      background: #09101A;
+      box-shadow: -10px 0 30px rgba(0,0,0,0.4);
+    }
+  }
+  body.dark-mode .trust {
+    background: #131E2B;
+    border: 1px solid #1E293B;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.4);
+  }
+  body.dark-mode .trust-cell {
+    border-right-color: #1E293B;
+    border-bottom-color: #1E293B;
+  }
+  body.dark-mode .trust-cell h4 {
+    color: #FFFFFF;
+  }
+  body.dark-mode .offer-card {
+    background: #131E2B;
+    border-color: #1E293B;
+  }
+  body.dark-mode .offer-card h3 {
+    color: #FFFFFF;
+  }
+  body.dark-mode .offer-icon {
+    border-color: #131E2B;
+  }
+  body.dark-mode .embroidery-list li {
+    color: #E2E8F0;
+  }
+  body.dark-mode .modal-box {
+    background: #09101A;
+    color: #E2E8F0;
+    border: 1px solid #1E293B;
+  }
+  body.dark-mode .modal-header {
+    background: #09101A;
+    border-bottom-color: #1E293B;
+  }
+  body.dark-mode .modal-header h3 {
+    color: #FFFFFF;
+  }
+</style>
+</head>
+<body>
+
+<!-- MODALS -->
+
+<!-- Modal: School Uniforms -->
+<div class="modal-overlay" id="modal-school" role="dialog" aria-modal="true" aria-labelledby="modal-school-title">
+  <div class="modal-box">
+    <div class="modal-header">
+      <h3 id="modal-school-title">&#128085; School Uniforms</h3>
+      <button class="modal-close" onclick="closeModal('modal-school')" aria-label="Close">&#10005;</button>
+    </div>
+    <div class="modal-body">
+      <p class="modal-desc">High quality school uniforms for all levels — neat, durable and comfortable. We offer sweaters, shirts, trousers, skirts, dresses and full uniform sets tailored to your school's colours and badge.</p>
+      <div class="modal-gallery">
+        <img src="IMG-20260714-WA0045.jpg" alt="Grey school sweater with tie">
+        <img src="IMG-20260714-WA0067.jpg" alt="Full school uniform set">
+        <img src="IMG-20260714-WA0055.jpg" alt="Navy school dress uniform">
+        <img src="IMG-20260714-WA0065.jpg" alt="Students in Davanis school uniforms">
+        <img src="IMG-20260714-WA0069.jpg" alt="Students in blue school blazers">
+        <img src="IMG-20260714-WA0070.jpg" alt="Girls school uniform styles">
+      </div>
+      <div class="modal-cta">
+        <a class="wa-btn" href="https://wa.me/254710289290?text=Hello%20Davanis!%20I%27m%20interested%20in%20School%20Uniforms" target="_blank" rel="noopener">&#128172; Inquire on WhatsApp</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal: Blazers & Accessories -->
+<div class="modal-overlay" id="modal-blazers" role="dialog" aria-modal="true" aria-labelledby="modal-blazers-title">
+  <div class="modal-box">
+    <div class="modal-header">
+      <h3 id="modal-blazers-title">&#128468; Blazers &amp; Accessories</h3>
+      <button class="modal-close" onclick="closeModal('modal-blazers')" aria-label="Close">&#10005;</button>
+    </div>
+    <div class="modal-body">
+      <p class="modal-desc">Blazers, ties, sweaters, socks and all accessories to complete the school look. Available in a wide range of colours, patterns and custom embroidery options for your institution.</p>
+      <div class="modal-gallery">
+        <img src="IMG-20260714-WA0051.jpg" alt="Premium navy blazer with gold trim">
+        <img src="IMG-20260714-WA0050.jpg" alt="Navy school blazer with badge">
+        <img src="IMG-20260714-WA0056.jpg" alt="School blazers boy and girl">
+        <img src="IMG-20260714-WA0046.jpg" alt="Solid colour school ties">
+        <img src="IMG-20260714-WA0047.jpg" alt="Striped school ties">
+        <img src="IMG-20260714-WA0048.jpg" alt="Bow ties and striped ties">
+        <img src="IMG-20260714-WA0049.jpg" alt="Plaid school ties">
+        <img src="IMG-20260714-WA0068.jpg" alt="School caps and accessories">
+      </div>
+      <div class="modal-cta">
+        <a class="wa-btn" href="https://wa.me/254710289290?text=Hello%20Davanis!%20I%27m%20interested%20in%20Blazers%20and%20Accessories" target="_blank" rel="noopener">&#128172; Inquire on WhatsApp</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal: Sportswear -->
+<div class="modal-overlay" id="modal-sport" role="dialog" aria-modal="true" aria-labelledby="modal-sport-title">
+  <div class="modal-box">
+    <div class="modal-header">
+      <h3 id="modal-sport-title">&#127939; Sportswear</h3>
+      <button class="modal-close" onclick="closeModal('modal-sport')" aria-label="Close">&#10005;</button>
+    </div>
+    <div class="modal-body">
+      <p class="modal-desc">Tracksuits, jerseys, shorts and T-shirts for sports teams and individuals. Breathable fabrics, custom colours and team branding available on request.</p>
+      <div class="modal-gallery-wide">
+        <img src="IMG-20260714-WA0052.jpg" alt="Navy Adidas sports tracksuit">
+        <img src="IMG-20260714-WA0054.jpg" alt="Black and white tracksuit">
+        <img src="IMG-20260714-WA0053.jpg" alt="Sports jersey and shorts">
+      </div>
+      <div class="modal-cta">
+        <a class="wa-btn" href="https://wa.me/254710289290?text=Hello%20Davanis!%20I%27m%20interested%20in%20Sportswear" target="_blank" rel="noopener">&#128172; Inquire on WhatsApp</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal: Custom Orders -->
+<div class="modal-overlay" id="modal-custom" role="dialog" aria-modal="true" aria-labelledby="modal-custom-title">
+  <div class="modal-box">
+    <div class="modal-header">
+      <h3 id="modal-custom-title">&#128188; Custom Orders</h3>
+      <button class="modal-close" onclick="closeModal('modal-custom')" aria-label="Close">&#10005;</button>
+    </div>
+    <div class="modal-body">
+      <p class="modal-desc">We handle custom designs and bulk orders tailored to your school, organization or team. Share your design ideas and we'll bring them to life at competitive prices.</p>
+      <div class="modal-gallery">
+        <img src="IMG-20260714-WA0053.jpg" alt="Custom sports jersey and shorts">
+        <img src="IMG-20260714-WA0067.jpg" alt="Custom full school uniform set">
+        <img src="IMG-20260714-WA0056.jpg" alt="Custom school blazers">
+        <img src="IMG-20260714-WA0069.jpg" alt="Custom blazers for a school group">
+        <img src="IMG-20260714-WA0072.jpg" alt="Custom school uniform — girls blazers">
+        <img src="IMG-20260714-WA0074.jpg" alt="Custom school uniform — mixed group">
+      </div>
+      <div class="modal-cta">
+        <a class="wa-btn" href="https://wa.me/254710289290?text=Hello%20Davanis!%20I%27d%20like%20to%20place%20a%20Custom%20Order" target="_blank" rel="noopener">&#128172; Place Custom Order via WhatsApp</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="topbar">
+  <div class="wrap">
+    <div class="left">
+      <span>&#9742; +254 710 289 290</span>
+      <span>&#9993; davanisuniform@gmail.com</span>
+      <span>&#9679; Uhuru Market, Jogoo Road — Shop J-100, J-101 &amp; Block C Shop 6</span>
+    </div>
+    <div class="socials">
+      <a href="#" aria-label="Facebook">f</a>
+      <a href="#" aria-label="Instagram">ig</a>
+      <a href="https://wa.me/254710289290" aria-label="WhatsApp">wa</a>
+      <a href="#" aria-label="TikTok">tt</a>
+    </div>
+  </div>
+</div>
+
+<nav>
+  <div class="wrap">
+    <a href="#" class="brand">
+      <img class="logo-img" src="WhatsApp Image 2026-07-06 at 10.20.08.jpeg" alt="Davanis Uniforms Ltd Logo">
+      <div class="word">DAVANIS<br><span>UNIFORMS LTD</span><small>Stitching Excellence</small></div>
+    </a>
+    <div class="navlinks">
+      <a href="#">Home</a>
+      <a href="#offer">Products</a>
+      <a href="#embroidery">Embroidery</a>
+      <a href="#gallery">Recent Work</a>
+      <a href="#contact">Contact Us</a>
+    </div>
+    <div style="display:flex; align-items:center; gap:16px;">
+      <!-- Stylish Sun/Moon theme toggle switch -->
+      <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
+        <svg class="sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+        <svg class="moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+      </button>
+
+      <a class="wa-btn" href="https://wa.me/254710289290" target="_blank" rel="noopener">&#128172; Order on WhatsApp</a>
+      <div class="burger" id="burger"><span></span><span></span><span></span></div>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="hero-grid">
+    <div class="hero-copy">
+      <span class="eyebrow">Davanis Uniforms Ltd</span>
+      <h1>QUALITY UNIFORMS,<br><span class="accent">SMART CHOICE</span></h1>
+      <div class="hero-script">Stitching Excellence</div>
+      <p>We provide high quality, comfortable and affordable uniforms for schools, sports teams and organizations across Kenya.</p>
+      <div class="hero-actions">
+        <a href="#offer" class="btn btn-gold">Our Products →</a>
+        <a href="https://wa.me/254710289290" class="btn btn-outline" target="_blank" rel="noopener">Contact Us</a>
+      </div>
+    </div>
+    <div class="hero-img-wrap">
+      <div class="hero-badge">
+        <img class="badge-logo" src="WhatsApp Image 2026-07-06 at 10.20.08.jpeg" alt="Davanis Uniforms Ltd">
+      </div>
+      <img src="IMG-20260714-WA0065.jpg" alt="Students wearing Davanis school uniforms">
+    </div>
+  </div>
+</header>
+
+<div class="wrap trust-wrap">
+  <div class="trust reveal">
+    <div class="trust-grid">
+      <div class="trust-cell"><div class="trust-icon">&#9733;</div><div><h4>Quality</h4><p>Premium materials</p></div></div>
+      <div class="trust-cell"><div class="trust-icon">&#9986;</div><div><h4>Perfect Fit</h4><p>Tailored for comfort</p></div></div>
+      <div class="trust-cell"><div class="trust-icon">&#8358;</div><div><h4>Affordable</h4><p>Best prices</p></div></div>
+      <div class="trust-cell"><div class="trust-icon">&#9993;</div><div><h4>Fast Delivery</h4><p>On time, every time</p></div></div>
+    </div>
+  </div>
+</div>
+
+<section id="offer">
+  <div class="wrap">
+    <div class="head-center reveal">
+      <span class="eyebrow">Our Products</span>
+      <h2>What We Offer</h2>
+    </div>
+    <div class="offer-grid">
+      <div class="offer-card reveal">
+        <div class="offer-photo"><img src="IMG-20260714-WA0045.jpg" alt="School uniforms — grey sweater with tie"></div>
+        <div class="offer-icon">&#128085;</div>
+        <div class="offer-body">
+          <h3>SCHOOL UNIFORMS</h3>
+          <p>High quality school uniforms for all levels. Neat, durable and comfortable.</p>
+          <button class="btn btn-green" onclick="openModal('modal-school')">View More</button>
+        </div>
+      </div>
+      <div class="offer-card reveal">
+        <div class="offer-photo"><img src="IMG-20260714-WA0051.jpg" alt="Premium school blazer with gold trim"></div>
+        <div class="offer-icon">&#128468;</div>
+        <div class="offer-body">
+          <h3>BLAZERS &amp; ACCESSORIES</h3>
+          <p>Blazers, ties, sweaters, socks and other accessories to complete the look.</p>
+          <button class="btn btn-green" onclick="openModal('modal-blazers')">View More</button>
+        </div>
+      </div>
+      <div class="offer-card reveal">
+        <div class="offer-photo"><img src="IMG-20260714-WA0052.jpg" alt="Navy sports tracksuit"></div>
+        <div class="offer-icon">&#127939;</div>
+        <div class="offer-body">
+          <h3>SPORTSWEAR</h3>
+          <p>Tracksuits, jerseys, shorts and T-shirts for teams and individuals.</p>
+          <button class="btn btn-green" onclick="openModal('modal-sport')">View More</button>
+        </div>
+      </div>
+      <div class="offer-card reveal">
+        <div class="offer-photo"><img src="IMG-20260714-WA0053.jpg" alt="Custom sports jersey and shorts"></div>
+        <div class="offer-icon">&#128188;</div>
+        <div class="offer-body">
+          <h3>CUSTOM ORDERS</h3>
+          <p>We handle custom designs and bulk orders to suit your needs.</p>
+          <button class="btn btn-green" onclick="openModal('modal-custom')">View More</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Custom Embroidery & Labelling Section -->
+<section id="embroidery" class="embroidery">
+  <div class="wrap">
+    <div class="embroidery-grid">
+      <div class="embroidery-copy reveal">
+        <span class="eyebrow">Professional Customization</span>
+        <h2>Custom Embroidery &amp; Labelling Services</h2>
+        <p>We offer state-of-the-art computerized embroidery and uniform labelling services. With access to nearly all school, corporate, and organization logos that exist, we guarantee absolute precision and durability for your brand crest or name label.</p>
+        <ul class="embroidery-list">
+          <li><span>&#10003;</span> Computerized Precision Embroidery</li>
+          <li><span>&#10003;</span> Durable Uniform Labelling &amp; Badging</li>
+          <li><span>&#10003;</span> Match and Stitch nearly any existing logo</li>
+          <li><span>&#10003;</span> Perfect for schools, sports clubs &amp; corporations</li>
+        </ul>
+        <a href="https://wa.me/254710289290?text=Hello%20Davanis!%20I%27d%20like%20to%20inquire%20about%20your%20embroidery%20and%20labelling%20services." class="btn btn-gold" target="_blank" rel="noopener">Inquire About Embroidery →</a>
+      </div>
+      <div class="embroidery-gallery reveal">
+        <img class="img-main" src="IMG-20260714-WA0079.jpg" alt="Computerized embroidery machine stitching logo">
+        <img src="IMG-20260714-WA0080.jpg" alt="Finished embroidered custom badge patch">
+        <img src="IMG-20260714-WA0078.jpg" alt="Collection of school logo embroidery design inspirations">
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="why">
+  <div class="wrap">
+    <div class="why-grid reveal">
+      <div class="why-img"><img src="IMG-20260714-WA0067.jpg" alt="Full Davanis school uniform collection"></div>
+      <div class="why-copy">
+        <span class="eyebrow">Why Choose</span>
+        <h2>DAVANIS UNIFORMS?</h2>
+        <p>We are committed to providing quality uniforms that promote identity, unity and confidence. Our products are made from the best materials with great attention to detail.</p>
+        <div class="why-points">
+          <div class="why-point"><div class="icon">&#10003;</div><div><h4>Quality Materials</h4><p>We use durable and comfortable fabrics.</p></div></div>
+          <div class="why-point"><div class="icon">&#9986;</div><div><h4>Skilled Tailors</h4><p>Experienced tailors ensure perfect stitching.</p></div></div>
+          <div class="why-point"><div class="icon">&#128101;</div><div><h4>Customer Satisfaction</h4><p>We value our customers and always deliver the best.</p></div></div>
+          <div class="why-point"><div class="icon">&#128176;</div><div><h4>Affordable Prices</h4><p>Top quality uniforms at prices you can afford.</p></div></div>
+        </div>
+        <a href="https://wa.me/254710289290" class="btn btn-gold" target="_blank" rel="noopener">Chat With Us on WhatsApp →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="gallery">
+  <div class="wrap">
+    <div class="head-center reveal">
+      <span class="eyebrow">Gallery</span>
+      <h2 style="color:var(--navy);">Our Recent Work</h2>
+    </div>
+    <div class="gal-grid">
+      <div class="gal-item reveal"><img src="IMG-20260714-WA0065.jpg" alt="Davanis school uniform — boy and girl"></div>
+      <div class="gal-item reveal"><img src="IMG-20260714-WA0069.jpg" alt="Students in blue school blazers"></div>
+      <div class="gal-item reveal"><img src="IMG-20260714-WA0071.jpg" alt="Girls in green school uniforms"></div>
+      <div class="gal-item reveal"><img src="IMG-20260714-WA0072.jpg" alt="Girls in blue blazers — school group"></div>
+      <div class="gal-item reveal"><img src="IMG-20260714-WA0073.jpg" alt="Girls in green school sweaters"></div>
+      <div class="gal-item reveal"><img src="IMG-20260714-WA0074.jpg" alt="School students in mixed uniforms"></div>
+    </div>
+    <div class="gal-cta reveal"><a href="https://wa.me/254710289290" class="btn btn-green" target="_blank" rel="noopener">&#128172; Order Now on WhatsApp →</a></div>
+  </div>
+</section>
+
+<footer id="contact">
+  <div class="wrap foot-top">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <a href="#" class="brand" style="margin-bottom: 20px;">
+          <img class="logo-img" src="WhatsApp Image 2026-07-06 at 10.20.08.jpeg" alt="Davanis Uniforms Ltd Logo" style="filter:brightness(0) invert(1);">
+          <div class="word" style="color:#fff;">DAVANIS<br><span style="color:var(--gold-light);">UNIFORMS LTD</span><small style="color:rgba(255,255,255,.5);">Stitching Excellence</small></div>
+        </a>
+        <p>Quality uniforms, smart choice. Serving schools, sports teams and organizations across Kenya.</p>
+        <div class="foot-socials">
+          <a href="#" aria-label="Facebook">f</a>
+          <a href="#" aria-label="Instagram">ig</a>
+          <a href="https://wa.me/254710289290" aria-label="WhatsApp">wa</a>
+          <a href="#" aria-label="TikTok">tt</a>
+        </div>
+      </div>
+      <div>
+        <h5>Quick Links</h5>
+        <ul>
+          <li>→ <a href="#">Home</a></li>
+          <li>→ <a href="#offer">Products</a></li>
+          <li>→ <a href="#embroidery">Embroidery</a></li>
+          <li>→ <a href="#gallery">Recent Work</a></li>
+          <li>→ <a href="#contact">Contact Us</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Contact Us</h5>
+        <ul>
+          <li>&#9742; +254 710 289 290</li>
+          <li>&#9993; davanisuniform@gmail.com</li>
+          <li>&#128205; Uhuru Market, Jogoo Road</li>
+          <li style="flex-direction:column; align-items:flex-start; gap:4px;">
+            <span>&nbsp;&nbsp;&nbsp;&nbsp;Shop J-100 &amp; J-101</span>
+            <span>&nbsp;&nbsp;&nbsp;&nbsp;Block C, Shop 6</span>
+          </li>
+          <li>&#128337; Open: Mon–Sat (8:00am – 6:00pm)</li>
+        </ul>
+      </div>
+      <div class="foot-wa">
+        <h5>Order on WhatsApp</h5>
+        <p>Click the button below to chat with us and place your order or make any inquiry.</p>
+        <a class="wa-btn" href="https://wa.me/254710289290" target="_blank" rel="noopener">&#128172; Chat Now</a>
+      </div>
+    </div>
+  </div>
+  <div class="wrap bottom-bar">
+    <span>© 2026 Davanis Uniforms Ltd. All Rights Reserved.</span>
+    <span>Designed with ❤ by Davanis Uniform</span>
+  </div>
+</footer>
+
+<script>
+  /* Modal open/close */
+  function openModal(id){
+    document.getElementById(id).classList.add('open');
+    document.body.style.overflow='hidden';
+  }
+  function closeModal(id){
+    document.getElementById(id).classList.remove('open');
+    document.body.style.overflow='';
+  }
+  /* Close modal on overlay click */
+  document.querySelectorAll('.modal-overlay').forEach(function(overlay){
+    overlay.addEventListener('click', function(e){
+      if(e.target === overlay) closeModal(overlay.id);
+    });
+  });
+  /* Close on Escape key */
+  document.addEventListener('keydown', function(e){
+    if(e.key==='Escape'){
+      document.querySelectorAll('.modal-overlay.open').forEach(function(m){ closeModal(m.id); });
+    }
+  });
+
+  /* Mobile Burger Menu Toggle */
+  const burger = document.getElementById('burger');
+  const navlinks = document.querySelector('.navlinks');
+  
+  burger.addEventListener('click', function(){
+    burger.classList.toggle('active');
+    navlinks.classList.toggle('active');
+  });
+  
+  document.querySelectorAll('.navlinks a').forEach(function(link){
+    link.addEventListener('click', function(){
+      burger.classList.remove('active');
+      navlinks.classList.remove('active');
+    });
+  });
+
+  /* Scroll reveal */
+  const revealEls = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, {threshold:0.12});
+  revealEls.forEach(el=>io.observe(el));
+
+  /* Theme Toggle (Dark / Light Mode) */
+  const themeToggle = document.getElementById('theme-toggle');
+  
+  // Set theme preference on page load
+  const savedTheme = localStorage.getItem('theme');
+  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  
+  if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+    document.body.classList.add('dark-mode');
+  }
+  
+  // Handle theme switch on click
+  themeToggle.addEventListener('click', function(){
+    document.body.classList.toggle('dark-mode');
+    const isDark = document.body.classList.contains('dark-mode');
+    localStorage.setItem('theme', isDark ? 'dark' : 'light');
+  });
+</script>
+
+</body>
+</html>
