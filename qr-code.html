@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Davanis Uniforms — QR Code</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box;}
+    body{
+      font-family:'Outfit',sans-serif;
+      background:#0d1b2a;
+      min-height:100vh;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      justify-content:center;
+      gap:32px;
+      padding:40px 20px;
+    }
+
+    /* ── Page title ── */
+    .page-title{
+      color:#aab4be;
+      font-size:13px;
+      letter-spacing:3px;
+      text-transform:uppercase;
+      text-align:center;
+    }
+
+    /* ── Card ── */
+    .card{
+      background:linear-gradient(145deg,#162032,#1e3048);
+      border:1px solid rgba(212,175,55,0.25);
+      border-radius:24px;
+      padding:48px 40px 40px;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      gap:28px;
+      max-width:420px;
+      width:100%;
+      box-shadow:0 30px 80px rgba(0,0,0,0.5),0 0 0 1px rgba(255,255,255,0.04) inset;
+      position:relative;
+      overflow:hidden;
+    }
+
+    /* gold corner accents */
+    .card::before,.card::after{
+      content:'';
+      position:absolute;
+      width:80px;height:80px;
+      border-color:#d4af37;border-style:solid;
+      opacity:0.4;
+    }
+    .card::before{top:16px;left:16px;border-width:2px 0 0 2px;border-radius:8px 0 0 0;}
+    .card::after{bottom:16px;right:16px;border-width:0 2px 2px 0;border-radius:0 0 8px 0;}
+
+    /* brand */
+    .brand{display:flex;align-items:center;gap:14px;}
+    .brand img{width:60px;height:60px;object-fit:contain;border-radius:10px;}
+    .brand-text{}
+    .brand-name{
+      font-size:18px;font-weight:800;
+      background:linear-gradient(135deg,#d4af37,#f5e27a);
+      -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+      line-height:1.1;letter-spacing:0.5px;
+    }
+    .brand-sub{color:#7a9ab8;font-size:11px;letter-spacing:2px;text-transform:uppercase;margin-top:3px;}
+
+    /* divider */
+    .divider{
+      width:100%;height:1px;
+      background:linear-gradient(90deg,transparent,rgba(212,175,55,0.4),transparent);
+    }
+
+    /* scan label */
+    .scan-label{
+      font-size:12px;letter-spacing:3px;text-transform:uppercase;
+      color:#7a9ab8;font-weight:500;
+    }
+
+    /* QR frame */
+    .qr-frame{
+      background:#ffffff;
+      border-radius:18px;
+      padding:16px;
+      box-shadow:0 8px 32px rgba(0,0,0,0.4);
+      position:relative;
+    }
+    .qr-frame img{
+      display:block;
+      width:220px;height:220px;
+      border-radius:6px;
+    }
+
+    /* bottom info */
+    .info{text-align:center;}
+    .info h2{
+      font-size:15px;font-weight:700;color:#e8f0fe;
+      letter-spacing:1px;margin-bottom:6px;
+    }
+    .info p{font-size:12px;color:#6b8399;line-height:1.7;}
+    .url{
+      font-size:11.5px;
+      color:#d4af37;
+      font-weight:600;
+      letter-spacing:0.5px;
+      margin-top:8px;
+      word-break:break-all;
+    }
+
+    /* contact row */
+    .contacts{
+      display:flex;gap:18px;flex-wrap:wrap;justify-content:center;margin-top:4px;
+    }
+    .contact-item{
+      display:flex;align-items:center;gap:6px;
+      font-size:11.5px;color:#7a9ab8;
+    }
+    .contact-item span{font-size:14px;}
+
+    /* Print button */
+    .btn-row{display:flex;gap:14px;flex-wrap:wrap;justify-content:center;}
+    .btn{
+      padding:13px 30px;border-radius:50px;font-size:13px;font-weight:600;
+      cursor:pointer;border:none;font-family:'Outfit',sans-serif;
+      letter-spacing:0.5px;transition:all 0.25s ease;
+    }
+    .btn-primary{
+      background:linear-gradient(135deg,#d4af37,#c9981e);
+      color:#0d1b2a;box-shadow:0 4px 20px rgba(212,175,55,0.35);
+    }
+    .btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(212,175,55,0.5);}
+    .btn-secondary{
+      background:transparent;border:1px solid rgba(212,175,55,0.4);
+      color:#d4af37;
+    }
+    .btn-secondary:hover{background:rgba(212,175,55,0.08);transform:translateY(-2px);}
+
+    /* hint */
+    .hint{color:#445566;font-size:11px;letter-spacing:0.5px;text-align:center;}
+
+    /* ── PRINT styles ── */
+    @media print{
+      body{background:#fff;padding:0;}
+      .btn-row,.page-title,.hint{display:none;}
+      .card{
+        background:#fff;border:2px solid #1a3a5c;
+        box-shadow:none;margin:0 auto;
+        border-radius:16px;
+      }
+      .card::before,.card::after{border-color:#1a3a5c;opacity:0.6;}
+      .brand-name{-webkit-text-fill-color:#b8860b;background:none;color:#b8860b;}
+      .brand-sub,.scan-label,.contact-item{color:#555;}
+      .info h2{color:#1a3a5c;}
+      .info p{color:#444;}
+      .url{color:#b8860b;}
+      .divider{background:#ddd;}
+      .qr-frame{box-shadow:0 2px 8px rgba(0,0,0,0.15);}
+    }
+  </style>
+</head>
+<body>
+
+  <p class="page-title">📱 Scan to visit the website</p>
+
+  <div class="card">
+
+    <!-- Brand -->
+    <div class="brand">
+      <img src="IMG-20260711-WA0015.jpg" alt="Davanis Logo" onerror="this.style.display='none'">
+      <div class="brand-text">
+        <div class="brand-name">DAVANIS UNIFORMS LTD</div>
+        <div class="brand-sub">Stitching Excellence</div>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <p class="scan-label">📷 Scan QR Code to explore</p>
+
+    <!-- QR code via free API -->
+    <div class="qr-frame">
+      <img
+        src="https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=https%3A%2F%2Fdavanis-uniforms.vercel.app&color=0d1b2a&bgcolor=ffffff&qzone=1&margin=0&format=png"
+        alt="QR Code — Davanis Uniforms"
+      >
+    </div>
+
+    <div class="info">
+      <h2>Visit Our Online Catalogue</h2>
+      <p>School uniforms · Blazers · Sportswear<br>Embroidery &amp; Custom Labelling</p>
+      <div class="url">davanis-uniforms.vercel.app</div>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="contacts">
+      <span class="contact-item"><span>📞</span> +254 710 289 290</span>
+      <span class="contact-item"><span>📍</span> Uhuru Market, Jogoo Rd</span>
+    </div>
+
+  </div>
+
+  <!-- Buttons -->
+  <div class="btn-row">
+    <button class="btn btn-primary" onclick="window.print()">🖨️ Print QR Card</button>
+    <button class="btn btn-secondary" id="dlBtn">⬇️ Download as Image</button>
+  </div>
+
+  <p class="hint">Print this card and place it at your shop counter, stall, or include it in packaging!</p>
+
+  <script>
+    // Download as PNG using canvas
+    document.getElementById('dlBtn').addEventListener('click', async () => {
+      const qrImg = document.querySelector('.qr-frame img');
+      const canvas = document.createElement('canvas');
+      canvas.width = 600; canvas.height = 720;
+      const ctx = canvas.getContext('2d');
+
+      // Background
+      const grad = ctx.createLinearGradient(0,0,600,720);
+      grad.addColorStop(0,'#162032'); grad.addColorStop(1,'#1e3048');
+      ctx.fillStyle = grad;
+      ctx.roundRect(0,0,600,720,24);
+      ctx.fill();
+
+      // Border
+      ctx.strokeStyle = 'rgba(212,175,55,0.5)';
+      ctx.lineWidth = 2;
+      ctx.roundRect(1,1,598,718,24);
+      ctx.stroke();
+
+      // QR image in white frame
+      const img = new Image();
+      img.crossOrigin='anonymous';
+      img.src = qrImg.src;
+      img.onload = () => {
+        ctx.fillStyle='#ffffff';
+        ctx.roundRect(170,100,260,260,14);
+        ctx.fill();
+        ctx.drawImage(img,186,116,228,228);
+
+        // Title
+        ctx.fillStyle='#d4af37';
+        ctx.font='bold 24px Outfit,sans-serif';
+        ctx.textAlign='center';
+        ctx.fillText('DAVANIS UNIFORMS LTD',300,420);
+        ctx.fillStyle='#7a9ab8';
+        ctx.font='14px Outfit,sans-serif';
+        ctx.fillText('davanis-uniforms.vercel.app',300,450);
+        ctx.fillText('+254 710 289 290  |  Uhuru Market, Jogoo Rd',300,480);
+
+        // Download
+        const a = document.createElement('a');
+        a.download = 'davanis-uniforms-qr.png';
+        a.href = canvas.toDataURL('image/png');
+        a.click();
+      };
+      img.onerror = () => alert('Load the page online for the download to work (QR needs internet).');
+    });
+  </script>
+
+</body>
+</html>
