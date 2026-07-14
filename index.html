@@ -44,7 +44,11 @@
   .topbar .socials{display:flex; gap:12px;}
   .topbar .socials a{width:26px; height:26px; border-radius:50%; background:rgba(255,255,255,.12); display:flex; align-items:center; justify-content:center; font-size:11px; transition:.3s;}
   .topbar .socials a:hover{background:var(--gold); color:var(--navy);}
-  @media (max-width:760px){ .topbar .left{justify-content:center; text-align:center; width:100%;} .topbar .socials{display:none;} }
+  @media (max-width:760px){ 
+    .topbar .left{justify-content:center; text-align:center; width:100%; gap:12px;} 
+    .topbar .socials{display:none;}
+    .topbar .left span:nth-child(2), .topbar .left span:nth-child(3) { display:none; }
+  }
 
   /* nav */
   nav{background:#fff; box-shadow:0 2px 18px rgba(14,32,56,.08); position:sticky; top:0; z-index:50; transition: background 0.3s, border-color 0.3s;}
@@ -60,6 +64,7 @@
   .navlinks a:hover::after{width:100%;}
   .wa-btn{display:flex; align-items:center; gap:9px; background:#25D366; color:#fff; padding:12px 20px; border-radius:26px; font-family:'Montserrat',sans-serif; font-weight:700; font-size:12.5px; transition:.3s;}
   .wa-btn:hover{transform:translateY(-2px); box-shadow:0 10px 22px rgba(37,211,102,.35);}
+  .mobile-wa-btn{display:none;}
   .burger{display:none;}
 
   /* Theme Toggle Button Style */
@@ -100,6 +105,8 @@
 
   /* Mobile Navigation Menu Drawer */
   @media (max-width:960px){
+    nav .wa-btn { display:none !important; }
+    .mobile-wa-btn { display:flex !important; }
     .burger{display:flex; flex-direction:column; gap:5px; cursor:pointer; z-index:100; position:relative;}
     .burger span{width:24px; height:2px; background:var(--navy); transition: all 0.3s ease;}
     .navlinks{
@@ -131,6 +138,14 @@
     }
   }
 
+  @media (max-width:480px){
+    .brand .logo-img{width:48px; height:48px;}
+    .brand .word{font-size:14px;}
+    .brand .word small{font-size:8px; letter-spacing:0.08em;}
+    nav .wrap{height:72px;}
+    .navlinks{padding-top:80px;}
+  }
+
   /* hero */
   .hero{position:relative; background:linear-gradient(120deg, var(--navy) 0%, var(--green-2) 100%); color:#fff; overflow:hidden;}
   .hero-grid{display:grid; grid-template-columns:1.1fr .9fr; align-items:center; min-height:600px;}
@@ -153,8 +168,8 @@
   .hero-badge .badge-logo{width:130px; height:130px; object-fit:contain;}
   @media (max-width:960px){
     .hero-grid{grid-template-columns:1fr; min-height:auto;}
-    .hero-copy{padding:60px 24px 40px;}
-    .hero-img-wrap img{height:320px; border-radius:6px;}
+    .hero-copy{padding:50px 24px 30px;}
+    .hero-img-wrap img{height:280px; border-radius:6px;}
     .hero-badge{display:none;}
   }
 
@@ -171,6 +186,9 @@
   @media (max-width:560px){ .trust-grid{grid-template-columns:1fr;} }
 
   section{padding:110px 0;}
+  @media (max-width:760px) {
+    section{padding:60px 0;}
+  }
   .head-center{text-align:center; max-width:600px; margin:0 auto 60px;}
   .head-center .eyebrow{display:block; margin-bottom:12px;}
   .head-center h2{font-size:clamp(28px,3.6vw,40px); color:var(--navy); transition: color 0.3s;}
@@ -245,7 +263,7 @@
   .modal-gallery-wide img{width:100%; aspect-ratio:4/3; object-fit:cover; border-radius:8px; transition:transform .4s;}
   .modal-gallery-wide img:hover{transform:scale(1.04);}
   .modal-cta{margin-top:24px; text-align:center;}
-  @media (max-width:640px){.modal-gallery{grid-template-columns:1fr 1fr;} .modal-gallery-wide{grid-template-columns:1fr;}}
+  @media (max-width:640px){/deep/ .modal-gallery{grid-template-columns:1fr 1fr;} .modal-gallery-wide{grid-template-columns:1fr;}}
 
   /* why choose */
   .why{background:var(--green); color:#fff;}
@@ -511,6 +529,8 @@
       <a href="#embroidery">Embroidery</a>
       <a href="#gallery">Recent Work</a>
       <a href="#contact">Contact Us</a>
+      <!-- Mobile only ordering link -->
+      <a class="wa-btn mobile-wa-btn" href="https://wa.me/254710289290" target="_blank" rel="noopener" style="margin-top: 16px; justify-content: center;">&#128172; Order on WhatsApp</a>
     </div>
     <div style="display:flex; align-items:center; gap:16px;">
       <!-- Stylish Sun/Moon theme toggle switch -->
